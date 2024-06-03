@@ -6,6 +6,7 @@ from django.contrib.auth import authenticate, login as auth_login
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.contrib.auth.models import User
+from .models import Doctor
 
 def login(request):
     if request.method=="POST":
@@ -44,3 +45,12 @@ def register(request):
         messages.info(request, "Account created Successfully!")
         return redirect('/accounts/login/')
     return render(request,'register.html')
+
+def appointmet(request):
+    ueryset=Doctor.objects.all()
+    list=[]
+    for i in ueryset:
+        list.append(i.designation)
+    context = {'desig':list}
+    return render(request,'bookappointment.html',context)
+    
