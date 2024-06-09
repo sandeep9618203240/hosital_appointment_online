@@ -6,22 +6,24 @@ from django.contrib.auth import authenticate, login as auth_login
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.contrib.auth.models import User
-from .models import Doctor
+from .models import Doctor,patient
+from django.contrib import messages
 
 def login(request):
     if request.method=="POST":
-        username=request.POST['username']
-        password=request.POST['password']
+        username = request.POST.get('username')
+        password = request.POST.get('password')
         if not User.objects.filter(username=username):
+            print(username)
             messages.error(request, 'Invalid Username')
-            return redirect('/login/')
+            return redirect('/accounts/login/')
         user=authenticate(username=username,password=password)
         if user is None:
             messages.error(request, "Invalid Password")
-            return redirect('/login/')
+            return redirect('/accounts/login/')
         else:
             auth_login(request,user)
-            return redirect('')
+            return redirect('/bookappointment/')
     return render(request,'login.html')
 def register(request):
     if request.method == 'POST':
@@ -46,11 +48,43 @@ def register(request):
         return redirect('/accounts/login/')
     return render(request,'register.html')
 
-def appointmet(request):
+def bookappointment(request):
     ueryset=Doctor.objects.all()
     list=[]
     for i in ueryset:
         list.append(i.designation)
-    context = {'desig':list}
+    context = {'list':list}
+    print(context)
+    
+    if request.method=="POST":
+
+        name = request.POST.get('nameid', '')
+        sur_name= request.POST.get('sur_name', '')
+        age= request.POST.get('age', '')
+        address= request.POST.get('address', '')
+        phone= request.POST.get('phone', '')
+        disease_dis=request.POST.get('disease_dis', '')
+        date= request.POST.get('date', '')
+        doctor= request.POST.get('doctor', '')
+
+
+        queryset=Doctor.objects.get(designation=doctor)
+        print(queryset)
+        patient.objects.create(
+            name = name,
+            sur_name=sur_name,
+            age=age,
+            address=address,
+            phone=phone,
+            disease_dis=disease_dis,
+            date=date,
+            doctor=queryset
+        )
+        messages.success(request, "your appointment is success") 
+        return redirect ('/bookappointment/')
+        
+    
     return render(request,'bookappointment.html',context)
+
+
     

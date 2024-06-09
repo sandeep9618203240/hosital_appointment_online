@@ -83,12 +83,7 @@
             box-sizing: border-box;
         }
     </style>
-    <script>
-        function redirectToLogin() {
-          // Redirect to login.html
-          onclick="templates/login.html"
-        }
-      </script>
+    
 </head>
 <body>
     <header>
@@ -115,7 +110,10 @@
                 <h5 class="card-title">Card title</h5>
                 <p class="card-text">MEDICOVER is a leading healthcare provider in the community, offering a comprehensive range of services. Our team of highly qualified and experienced doctors, nurses, and specialists is dedicated to delivering the highest standards of care. We are recognized for our expertise in [mention specific specialties], providing innovative treatment options and staying at the forefront of medical advancements. We understand that each patient's needs are unique, and we tailor our approach to ensure the best possible outcomes.</p>
                 <p class="card-text"></p>
-                <button class="custom-button" onclick="redirectToLogin()">Login</button>
+                <button class="custom-button"onclick="window.location='accounts/login';">Login</button>
+            </div>
+                  
+                </button>
             </div>
         </div>
     </div>

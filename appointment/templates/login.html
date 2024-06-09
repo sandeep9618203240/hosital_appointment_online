@@ -33,6 +33,11 @@
   <header>
     <div class="header-left">
       <h1>Welcome to Our Website</h1>
+      {% for message in messages %}
+    <div class="alert alert-primary" role="alert">
+      {{message}}
+      </div>
+    {% endfor %}
   </div>
   </header>
     <form method="POST" enctype="multipart/form-data">
@@ -40,16 +45,17 @@
         <div class="mb-3">
           <div class="ca">
           <label for="exampleInputEmail1" class="form-label">name</label>
-          <input type="text" class="form-control" id="exampleInputEmail1" ar ia-describedby="emailHelp">
+          <input type="text" name="username" class="form-control" id="exampleInputEmail1" ar ia-describedby="emailHelp">
           </div>
         </div>
         <div class="mb-3">
           <div class="ca">
           <label for="exampleInputPassword1" class="form-label">Password</label>
-          <input type="password" class="form-control" id="exampleInputPassword1">
+          <input type="password" name="password" class="form-control" id="exampleInputPassword1">
         </div></div>
         
         <button type="submit" class="btn btn-primary">Submit</button>
+        <small class="text-muted">Don't have an account? <a href="{% url 'register' %}">Register</a></small>
       </form>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>

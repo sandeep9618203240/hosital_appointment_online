@@ -8,8 +8,11 @@ from accounts.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',firstpage,name='firstpage'),
+    path('firstpage/',firstpage,name='firstpage'),
     path('accounts/', include('accounts.urls')),
     path('hospitals/',hospitals,name='hospitals'),
-    path('appointmet/',appointmet,name='appointmet')
+    path('bookappointment/',bookappointment,name='bookappointment'),
+    path('',trail,name='trail'),
+    path('doctors/<username>/',doctors,name='doctors'),
+    path('login_doc/',login_doc,name='login_doc')
  ]

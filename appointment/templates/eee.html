@@ -1,117 +1,176 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Web Page with Header and Navbar</title>
+  <title>Medplus Hospital - Dashboard</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
+      background-color: #e6f7ff;
     }
+
     header {
-      background-color: #011201;
-      color: white;
-      padding: 1rem;
-      text-align: center;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    nav {
       background-color: #333;
-      overflow: hidden;
-    }
-    nav a {
-      float: left;
-      display: block;
-      color: rgb(198, 185, 185);
-      text-align: center;
-      padding: 1rem 1.5rem;
-      text-decoration: none;
-    }
-    nav a:hover {
-      background-color: #ddd;
-      color: black;
-    }
-    .title-card {
-      margin: 2rem;
-      padding: 2rem;
-      border: 1px solid #ddd;
-      border-radius: 5px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      text-align: center;
-    }
-    .title-card h1 {
-      margin: 0;
-      font-size: 2.5rem;
-      color: #333;
-    }
-    .title-card p {
-      margin: 0.5rem 0 0;
-      font-size: 1.25rem;
-      color: #666;
-    }
-    .sttt {
-      text-align: center;
-      padding: 20px;
-      border: 2px solid #000000;
-      background-color: #f9f9f9;
-      width: 100%;
-      margin: 20px auto;
-      box-sizing: border-box;
-      border-radius: 0.5cm;
-    }
-    .custom-button {
-      width: 150px;
-      height: 50px;
-      background-color: #000b01;
       color: white;
-      border: none;
+      padding: 15px 0;
+      text-align: center;
+      font-size: 24px;
+    }
+
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+
+    .info-container {
+      margin: 20px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px 0px #000;
+      max-width: 800px;
+    }
+
+    .info-box {
+      background: #f2f2f2;
+      padding: 15px;
+      margin-bottom: 15px;
       border-radius: 5px;
-      font-size: 16px;
-      cursor: pointer;
-      margin-bottom: 20px;
+      text-align: center;
     }
-    .imagep {
-      display: block;
-      width: 70%;
-      height: 60%;
-      object-fit: cover;
-      box-sizing: border-box;
-    }
-    .spec-box {
+
+    .switch-container {
       display: flex;
-      justify-content: space-between;
+      justify-content: space-around;
       align-items: center;
-      padding: 10px 20px;
-      border-bottom: 1px solid #ddd;
+      padding-top: 20px;
     }
-    .spec-box h3 {
-      font-size: 18px;
-      margin-bottom: 5px;
+
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 60px;
+      height: 34px;
     }
-    .spec-box p {
-      font-size: 14px;
-      color: #666;
+
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      transition: .4s;
+      border-radius: 34px;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 26px;
+      width: 26px;
+      left: 4px;
+      bottom: 4px;
+      background-color: white;
+      transition: .4s;
+      border-radius: 50%;
+    }
+
+    input:checked + .slider {
+      background-color: #4CAF50;
+    }
+
+    input:checked + .slider:before {
+      transform: translateX(26px);
     }
   </style>
 </head>
 <body>
-  <header>
-    <div class="header-left">
-      <h1>Welcome to Our Website</h1>
+
+<header>
+  Doctor Dashboard - Medplus Hospital
+</header>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#">Logo</a>
     </div>
-    <div class="header-right">
-      <input type="text" placeholder="Search..." style="padding: 0.5rem; border-radius: 5px; border: 1px solid #ccc;">
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Doctors</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="accounts/login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul>
     </div>
-  </header>
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#hospitals">Hospitals</a>
-    <a href="#contact">Contact</a>
-  </nav>
-  <div class="title-card">
-    <h1>Best Healthcare Services</h1>
-    <p>Your health
+  </div>
+</nav>
+
+<div class="container">
+  <div class="info-container">
+    <div class="info-box">
+      <h4>Registered Patients</h4>
+      <p>Number of Registered Patients: 25</p>
+    </div>
+    <div class="info-box">
+      <h4>Booked Appointments</h4>
+      <p>Number of Booked Appointments: 10</p>
+    </div>
+    <div class="info-box">
+      <h4>Today's Appointments</h4>
+      <p>Number of Appointments Today: 5</p>
+    </div>
+    <div class="info-box">
+      <h4>Available Slots</h4>
+      <p>Number of Available Slots: 15</p>
+    </div>
+    <div class="switch-container">
+      <label class="switch">
+        <input type="checkbox">
+        <span class="slider"></span>
+      </label>
+      <label class="switch">
+        <input type="checkbox">
+        <span class="slider"></span>
+      </label>
+      <label class="switch">
+        <input type="checkbox">
+        <span class="slider"></span>
+      </label>
+      <label class="switch">
+        <input type="checkbox">
+        <span class="slider"></span>
+      </label>
+      <label class="switch">
+        <input type="checkbox">
+        <span class="slider"></span>
+      </label>
+    </div>
+  </div>
+</div>
+
+<footer class="container-fluid text-center">
+  <p>Footer Text</p>
+</footer>
+
+</body>
+</html>

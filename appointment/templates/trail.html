@@ -1,48 +1,188 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hospital Appointments</title>
-    <link rel="stylesheet" href="style.css"> </head>
+  <title>medplus</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+    /* Remove the navbar's default margin-bottom and rounded borders */ 
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+    
+    /* Add a gray background color and some padding to the footer */
+    footer {
+      background-color: #f2f2f2;
+      padding: 25px;
+    }
+    
+  .carousel-inner img {
+      width: 90%; /* Set width to 100% */
+      margin: auto;
+      max-height:600px;
+  }
+
+  /* Hide the carousel text when the screen is less than 600 pixels wide */
+  @media (max-width: 600px) {
+    .carousel-caption {
+      display: none; 
+    }
+  }
+  body {
+      background-color: #ffffff; /* Change this color to any you like */
+    }
+    header {
+      background-color: #c7c1c1;
+      color: rgb(12, 8, 8);
+      padding: 15px 0;
+      text-align: center;
+      font-size: 24px;
+      bottom: 0.5cm;
+      margin-bottom: 0.5cm;
+      border-color: black;
+      border-radius: 1px;
+      margin-top: 0.2cm;
+    }* {
+  box-sizing: border-box;
+}
+
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 5px;
+}
+
+/* Clearfix (clear floats) */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+  </style>
+</head>
 <body>
-    <header>
-        <nav class="navbar">
-            <a href="#" class="logo">Hospital Name</a>
-            <ul class="nav-items">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Contact Us</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <main>
-        <section class="hero">
-            <h1>Welcome to [Hospital Name]!</h1>
-            <p>Schedule your appointments online quickly and easily.</p>
-            <a href="appointments.html">Schedule Appointment</a>
-            <img src="images/hospital-image.jpg" alt="Hospital building image">
-        </section>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <!-- <a class="navbar-brand" href="#">Logo</a> -->
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <!-- <li><a href="#">Projects</a></li> -->
+        <li><a href="#">Contact</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <!-- <li><a href="accounts/login.html"><span class="glyphicon glyphicon-log-in" onclick="window.location='accounts/login';"></span> Login</a></li> -->
+        <button class="custom-button"onclick="window.location='/accounts/login';">Login</button>
+      </ul>
+    </div>
+  </div>
+</nav>
+<header >
+ YOUR HEALTH WE CARE
+</header>
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+    </ol>
 
-        <section class="services">
-            <h2>Our Services</h2>
-            <ul class="service-list">
-                <li>
-                    <i class="fa fa-heartbeat"></i><h3>Cardiology</h3>
-                    <p>Providing expert care for heart conditions...</p>
-                </li>
-                <li>
-                    <i class="fa fa-brain"></i><h3>Neurology</h3>
-                    <p>Treating nervous system disorders...</p>
-                </li>
-                </ul>
-        </section>
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+      <div class="item active">
+        <img src="{% static 'Aster.jpg' %}" alt="Image">
+        <div class="carousel-caption">
+          <h3>Sell $</h3>
+          <p>Money Money.</p>
+        </div>      
+      </div>
 
-        </main>
+      <div class="item">
+        <img src="{% static 'hph5.jpeg' %}" alt="Image">
+        <div class="carousel-caption">
+          <h3>More Sell $</h3>
+          <p>Lorem ipsum...</p>
+        </div>      
+      </div>
+    </div>
 
-    <footer>
-        <p>&copy; [Hospital Name] 2024</p>
-    </footer>
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+</div>
+
+<div class="container text-center">    
+  <h3 style="color: rgb(234, 119, 175);">What We Do</h3><br>
+  <h4>Welcome to Medplus Hospital, a beacon of hope and healing in our community. Founded on the principles of compassion, innovation, and excellence, Medplus Hospital has been dedicated to providing the highest quality of healthcare for over two decades. Our state-of-the-art facility is equipped with the latest medical technology, ensuring that our patients receive cutting-edge treatment and care. We boast a team of highly skilled and experienced medical professionals who are committed to delivering personalized and comprehensive healthcare services. At Medplus Hospital, we believe in treating each patient with dignity, respect, and empathy, fostering a supportive environment that promotes well-being and recovery. Whether you need routine medical care, emergency services, or specialized treatment, Medplus Hospital is here to serve you and your family with unwavering dedication and expertise.
+
+  </h4>
+  <!-- <div class="row">
+    <div class="col-sm-4">
+      <img src="{% static  'hps1.jpeg' %}" class="img-responsive" style="width:100%" alt="Image">
+      <p>Current Project</p>
+    </div>
+    <div class="col-sm-4"> 
+      <img src="{% static  'hps1.jpeg' %}" class="img-responsive" style="width:100%" alt="Image">
+      <p>Project 2</p>    
+    </div>
+    <div class="col-sm-4">
+      <div class="well">
+        <h1>
+          Specialities
+        </h1>
+       <p>Some text..</p>
+      </div>
+      <div class="well">
+       <p>Some text..</p>
+      </div>
+    </div>
+  </div> -->
+</div><br>
+
+<div><div class="row">
+  <div class="column">
+    <img src="{% static  'eye.jpg' %}" alt="Avatar" style="width:40%">
+    <h6>eye</h6>
+  </div>
+  <div class="column">
+    <img src="{% static  'ear.jpg' %}" alt="Forest" style="width:50%">
+    <h6>ear</h6>
+  </div>
+  <div class="column">
+    <img src="{% static  'heart.png' %}" alt="Mountains" style="width:50%">
+  </div>
+  <div class="column">
+    <img src="{% static  'heart.png' %}" alt="Mountains" style="width:50%">
+  </div>
+  <div class="column">
+    <img src="{% static  'heart.png' %}" alt="Mountains" style="width:50%">
+  </div>
+</div></div>
+
+<footer class="container-fluid text-center">
+  <p>Footer Text</p>
+</footer>
+
 </body>
 </html>
